@@ -22,17 +22,11 @@ jobs:
           image_import: ./images # Directory to import images from
           build_html: false # Disable HTML build (only PDF)
 
-      # Step 3: Upload the generated PDF as an artifact
-      - uses: actions/upload-artifact@v3
-        with:
-          name: docs
-          path: pdf
-
-      # Step 4: Set the current date as an environment variable
+      # Step 3: Set the current date as an environment variable
       - name: Set current date as env variable
         run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
 
-      # Step 5: Upload the PDF to a GitHub release
+      # Step 4: Upload the PDF to a GitHub release
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:

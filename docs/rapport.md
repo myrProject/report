@@ -29,6 +29,24 @@ Ce projet vise à concevoir et mettre en œuvre une infrastructure cloud hybride
 
 ## Choix de la distribution utilisateur
 
+### Cahier des charges
+
+Fonctionnalités à intégrer dans la distribution :
+- Suite office
+- Messagerie Instantanée
+- Client mail spécificités
+- Calendrier qui s'intègre avec la messagerie instantanée et le client mail
+- Drive : client sur le poste qui synchronise les fichiers et une interface web
+- Authentification Linux sous PAM, avec authentification hors ligne et forte
+- Client d'un serveur d'automatisation d'une flotte
+- Logiciel de sécurité intégré (XDR)
+- Client VPN
+- Navigateur avec extension bloqueur de pub
+- Firewall local
+
+> Interrogation autour des clients légers / lourds : consulation d'un échantillon de profesionnels sur leurs préférences ?
+
+
 ### Comparatif des distributions
 | Distribution         | Avantages                                                                 | Inconvénients                                                                 |
 |----------------------|---------------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -58,8 +76,17 @@ Cette flexibilité permet d'adapter la distribution selon les préférences et l
 #### **NixOS**
 
 
-
 ## Choix de la distribution serveur (pour faire tourner Kubernetes)
+
+### Cahier des charges
+
+Services hébergés bénéficiant aux employés :
+- Services de ticketting
+- Gestionnaire Mot de passe
+- Espace drive perso
+- Logiciel de signature en ligne
+
+### Comparatif des distributions
 
 | Distribution   | Avantages                                                                 | Inconvénients                                                                 |
 |----------------|---------------------------------------------------------------------------|-------------------------------------------------------------------------------|

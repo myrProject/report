@@ -31,7 +31,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.TOKEN }}
-          file: pdf/readme.pdf # Path to the generated PDF
+          file: pdf/rapport.pdf # Path to the generated PDF
           asset_name: Rapport-${{env.NOW}}.pdf # Name of the uploaded asset
           tag: ${{ github.ref }} # Use the current Git ref as the tag
           overwrite: true # Overwrite existing assets

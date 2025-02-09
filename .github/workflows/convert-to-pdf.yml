@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-    # Paths can be used to only trigger actions when you have edited certain files, such as a file within the /docs directory
     paths:
       - "./**.md"
       - "./images/**"
@@ -14,15 +13,35 @@ jobs:
     name: Build PDF
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the repository
       - uses: actions/checkout@v3
+
+      # Step 2: Convert Markdown files to PDF
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          input_dir: docs
-          output_dir: pdf
-          images_dir: ./images
-          image_import: ./images
-          build_html: false
+          input_dir: docs # Directory containing Markdown files
+          output_dir: pdf # Directory to save the generated PDFs
+          images_dir: ./images # Directory containing images
+          image_import: ./images # Directory to import images from
+          build_html: false # Disable HTML build (only PDF)
+
+      # Step 3: Upload the generated PDF as an artifact
       - uses: actions/upload-artifact@v3
         with:
           name: docs
           path: pdf
+
+      # Step 4: Set the current date as an environment variable
+      - name: Set current date as env variable
+        run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+
+      # Step 5: Upload the PDF to a GitHub release
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.TOKEN }}
+          file: pdf/readme.pdf # Path to the generated PDF
+          asset_name: Rapport-${{env.NOW}}.pdf # Name of the uploaded asset
+          tag: ${{ github.ref }} # Use the current Git ref as the tag
+          overwrite: true # Overwrite existing assets
+          body: "Rapport généré le ${{env.NOW}}" # Description of the release

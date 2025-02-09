@@ -74,7 +74,9 @@ Néanmoins, il serait intéréssant d'extraire les composants essentiels de Parr
 Cette flexibilité permet d'adapter la distribution selon les préférences et les exigences de notre cahier des charges de cette distribution.
 
 #### **NixOS**
+NixOS est une distribution qui permet une configuration déclarative : en éditant le fichier *configuration.nix*, il est possible de décrire l'ensemble du système souhaité : logiciels installés, services activés, paramètres de sécurité, gestion des utilisateurs, etc. Contrairement aux distributions classiques où les configurations sont appliquées manuellement via des commandes et des fichiers dispersés, ici tout est défini en une seule fois puis appliqué via une reconstruction du système. Cette spécificité permet une installation homogène et reproductible sur l'ensemble des postes d'une entreprise et simplifie grandement leur gestion *(un administrateur peut gérer et modifier toute la flotte d'ordinateurs en ne modifiant qu'un seul fichier)*. Elle offre également des options d'isolation renforcées ainsi qu'un mécanisme de *rollback* qui permet de revenir instantanément à une configuration antérieure en cas d'erreur de configuration.
 
+Le point négatif de cette distribution réside surtout dans l'apprentissage qu'elle nécessite. En effet, **NixOS** possède une syntaxe et une gestion des paquets bien différente des autres distributions Linux et pourrait être compliquée à maintenir pour des administrateurs IT habitués aux méthodes plus classiques.
 
 ## Choix de la distribution serveur (pour faire tourner Kubernetes)
 

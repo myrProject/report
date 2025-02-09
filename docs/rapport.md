@@ -38,18 +38,25 @@ Ce projet vise à concevoir et mettre en œuvre une infrastructure cloud hybride
 | **AlpineLinux**      | - Très léger et rapide <br> - Idéal pour les conteneurs et les systèmes légers <br> - Sécurité renforcée | - Environnement minimaliste (peu convivial pour les débutants) <br> - Moins de logiciels disponibles <br> - Pas d'environnement de bureau intégré |
 | **Ubuntu**           | - Très populaire et bien documenté <br> - Support à long terme (LTS) <br> - Large logithèque | - Moins léger que d'autres distributions <br> - Dépendances parfois complexes <br> - Impossible de distribuer une version modifiée |
 
-### Prises en main de certaines distributions
+### Prise en main de certaines distributions
 
-#### **AlpineLinux**
-En voulant installer un environnement de bureau, nous constatons un très long temps d'installation (<10 min) ainsi que l'installation d'un énorme nombre de paquets.
-Cela revient à installer une distribution plus lourde, ce qui n'est pas l'objectif d'AlpineLinux. De plus, Alpine Linux n'inclut pas systemd, responsable de la gestion des sockets, des serives, des processus, des points de montages, des états d'énergie de l'ordinateur entre autres.
-Cela rend l'installation de certains logiciels et la gestion d'un OS sur un ordinateur de bureautique plus compliquée.
+#### **Alpine Linux**
+Alpine Linux est une distribution reconnue pour sa légèreté et sa simplicité.
+Cependant, lors de l'installation d'un environnement de bureau, nous avons constaté un temps d'installation assez long (plus de 10 minutes) ainsi que le téléchargement d'un grand nombre de paquets.
+Cela alourdit considérablement le système, ce qui va à l'encontre de l'objectif principal de la distribution.
 
-#### **ParrotOs (Home)**
-This edition embodies a versatile operating system with the characteristic ParrotSec aesthetics and usability.
-Tailored for everyday computing tasks, privacy-conscious use and software and software development, it meets a wide range of user needs.
-While prioritizing usability and accessibility, it also allows users to customize their experience by manually integrating Parrot tools.
-This allows the creation of a personalized and streamlined pentesting environment, ensuring flexibility and efficiency in cybersecurity in cybersecurity assessments and operations.
+De plus, Alpine Linux n'utilise pas **systemd**, le gestionnaire de services responsable de la gestion des sockets, des processus, des points de montage, des états d'énergie, entre autres.
+Cette absence peut compliquer l'installation de certains logiciels ainsi que la gestion du système d'exploitation sur un poste de travail.
+
+#### **Parrot OS (Home Edition)**
+Parrot OS Home est une distribution polyvalente, combinant esthétisme et convivialité, tout en offrant des fonctionnalités axées sur la protection de la vie privée et le développement logiciel.
+Conçue pour répondre à des besoins variés, elle s'appuie sur une base Debian, assurant stabilité et compatibilité.
+
+Néanmoins, il serait intéréssant d'extraire les composants essentiels de Parrot OS Home afin de créer une version plus légère et personnalisée, directement depuis Debian.
+Cette flexibilité permet d'adapter la distribution selon les préférences et les exigences de notre cahier des charges de cette distribution.
+
+#### **NixOS**
+
 
 
 ## Choix de la distribution serveur (pour faire tourner Kubernetes)

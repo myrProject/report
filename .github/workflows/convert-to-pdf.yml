@@ -32,7 +32,7 @@ jobs:
         with:
           repo_token: ${{ secrets.TOKEN }}
           file: pdf/rapport.pdf # Path to the generated PDF
-          asset_name: Rapport-${{env.NOW}}.pdf # Name of the uploaded asset
+          asset_name: Rapport.pdf # Name of the uploaded asset
           tag: ${{ github.ref }} # Use the current Git ref as the tag
           overwrite: true # Overwrite existing assets
           body: "Rapport généré le ${{env.NOW}}" # Description of the release

@@ -82,11 +82,23 @@ Le point négatif de cette distribution réside surtout dans l'apprentissage qu'
 
 ### Cahier des charges
 
-Services hébergés bénéficiant aux employés :
+Services k8s à intégrer :
+- Services de monitoring (Grafana)
+- Services de logging (Prometheus & Loki)
+- Services de backup (velero)
+- Services de sécurité (Kyverno for Policy Enforcement,  Falco for Runtime Security, Trivy for Vulnerability Scanning, Kubescape for Compliance and Hardening, Cilium for Network Security)
+- Services de gestion des identités (KaniDM)
+- Services de registre des images contenarisées (Harbor)
+- Service de registers des paquets Node (et Java?)
+- Tous les services nécéssaires aux fonctionnement de la distribution utilisateur
+
+dont des services hébergés bénéficiant aux employés :
 - Services de ticketting
 - Gestionnaire Mot de passe
 - Espace drive perso
 - Logiciel de signature en ligne
+- Logiciel de wiki
+- Logiciel de discussion communautaire
 
 ### Comparatif des distributions
 

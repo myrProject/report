@@ -1,3 +1,5 @@
+# Distribution Unix
+
 ## Suite office
 - [OnlyOffice](https://github.com/ONLYOFFICE/DesktopEditors)
 - [Collabora](https://github.com/CollaboraOnline/online)
@@ -49,6 +51,11 @@ iptables ou nftables ou ufw
 ## Editeur de texte
 - [vscodium](https://github.com/VSCodium/vscodium)
 - [zed](https://github.com/zed-industries/zed)
+
+## Bureau à distance
+[Rustdesk](https://github.com/rustdesk/rustdesk) - soumis à une licence pour la version Pro
+
+# Services cloud à héberger
 
 ## Système de fichiers
 - [rook](https://github.com/rook/rook) managing [ceph](https://github.com/ceph/ceph)

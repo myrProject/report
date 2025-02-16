@@ -1,5 +1,10 @@
 # Distribution Unix
 
+
+## OS Utilisateur
+[NixOs](https://nixos.org/)
+[Debian](https://www.debian.org/index.fr.html)
+
 ## Suite office
 - [OnlyOffice](https://github.com/ONLYOFFICE/DesktopEditors)
 - [Collabora](https://github.com/CollaboraOnline/online)
@@ -56,6 +61,10 @@ iptables ou nftables ou ufw
 [Rustdesk](https://github.com/rustdesk/rustdesk) - soumis à une licence pour la version Pro
 
 # Services cloud à héberger
+
+## OS Serveur
+[TalOs](https://github.com/siderolabs/talos) managed by [Omni](https://github.com/siderolabs/omni), built to run k8s
+[Debian](https://www.debian.org/index.fr.html)
 
 ## Système de fichiers
 - [rook](https://github.com/rook/rook) managing [ceph](https://github.com/ceph/ceph)

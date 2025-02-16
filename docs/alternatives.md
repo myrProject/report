@@ -2,8 +2,8 @@
 
 
 ## OS Utilisateur
-[NixOs](https://nixos.org/)
-[Debian](https://www.debian.org/index.fr.html)
+- [NixOs](https://nixos.org/)
+- [Debian](https://www.debian.org/index.fr.html)
 
 ## Suite office
 - [OnlyOffice](https://github.com/ONLYOFFICE/DesktopEditors)
@@ -23,7 +23,7 @@ De préférence, cliant intégrant le protocole JMAP
 
 ## Drive : client sur le poste qui synchronise les fichiers et une interface web
 - [ceph client](https://github.com/ceph/ceph) à configurer
-Interface web à développer
+et Interface web à développer
 
 ## Authentification Linux sous PAM, avec authentification hors ligne et forte
 - [Client PAM KaniDM](https://github.com/kanidm/kanidm)
@@ -51,7 +51,9 @@ Script bash qui pull configuration.nix à intervalle régulier
 [Bitwarden](https://github.com/bitwarden/clients)
 
 ## Firewall local
-iptables ou nftables ou ufw
+- iptables
+- nftables
+- ufw
 
 ## Editeur de texte
 - [vscodium](https://github.com/VSCodium/vscodium)
@@ -63,8 +65,8 @@ iptables ou nftables ou ufw
 # Services cloud à héberger
 
 ## OS Serveur
-[TalOs](https://github.com/siderolabs/talos) managed by [Omni](https://github.com/siderolabs/omni), built to run k8s
-[Debian](https://www.debian.org/index.fr.html)
+- [TalOs](https://github.com/siderolabs/talos) managed by [Omni](https://github.com/siderolabs/omni), built to run k8s
+- [Debian](https://www.debian.org/index.fr.html)
 
 ## Système de fichiers
 - [rook](https://github.com/rook/rook) managing [ceph](https://github.com/ceph/ceph)

@@ -1,42 +1,42 @@
 [Editor](https://mermaid.live)
 ```mermaid
 graph TD
-  style imap stroke:#333,stroke-width:2px,stroke-dasharray: 5,5;
-  style redis stroke:#333,stroke-width:2px,stroke-dasharray: 5,5;
-  style redis_ stroke:#333,stroke-width:2px,stroke-dasharray: 5,5;
-  style db stroke:#333,stroke-width:2px,stroke-dasharray: 5,5;
-  style network stroke:#333,stroke-width:2px,stroke-dasharray: 5,5;
-  style smtp stroke:#333,stroke-width:2px,stroke-dasharray: 5,5;
+    %% On-Premises Cluster
+    subgraph op[On Premises]
+        style op stroke-dasharray: 5 5
+        disk1[(Databases)]
+        disk2[(Storage)]
+        server1[LoadBalancer]
+        server2[ReverseProxy]
 
-  db["database"]
-  redis["redis"]
-  redis_["redis"]
-  imap["IMAP Server"]
-  network["network (http + websockets)"]
-  smtp["SMTP Server"]
+        %% Internal connections
+        server1 --> server2
+        server2 --> disk1
+        server2 --> disk2
+    end
 
-  ruche["<b>ruche</b>: database manager"]
-  nectar["<b>nectar</b>: IMAP ingestor"]
-  invertase["<b>invertase</b>: API server"]
-  fructose["<b>fructose</b>: frontend"]
+    %% Public Cloud Cluster
+    subgraph cp[Public Cloud]
+        style cp stroke-dasharray: 5 5
+        db2[(Stateless Applications)]
+        disk3[(Backups Storage)]
+        server3[LoadBalancer]
+        server4[ReverseProxy]
 
-  nectar -->|fetch| imap
-  imap --->|idle| nectar
-  nectar -->|write| db
+        %% Internal connections
+        server3 --> server4
+        server4 --> db2
+        server4 --> disk3
+    end
 
-  nectar -->|idle| redis -->|idle| invertase
-  invertase -->|backchannel| redis_ -->|backchannel| nectar
+    %% Enterprise Network
+    subgraph cp[Enterprise Network]
+        style cp stroke-dasharray: 5 5
+        server5[LoadBalancer]
+        server6[ReverseProxy]
+    end
 
-
-  db --> ruche
-  ruche -->|migrate| db
-
-  db -->|read| invertase
-  invertase -->|send| smtp
-
-  invertase --> network --> fructose
-  ruche -->|prisma client, pothos types| invertase
-  ruche -->|prisma client| nectar
-  invertase -->|graphql schema| fructose
+    %% Connection between On-Premises and Cloud
+    server1 -->|TUNNEL IP| server3
 
 ```

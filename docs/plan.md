@@ -4,10 +4,28 @@ graph TD
     %% On-Premises Cluster
     subgraph op[On Premises]
         style op stroke-dasharray: 5 5
-        disk1[(Databases)]
-        disk2[(Storage)]
-        server1[LoadBalancer]
-        server2[ReverseProxy]
+        disk1[(Databases Postgres)]
+        disk2[(Storage Employe)]
+        disk2[(Storage S3)]
+        server1[LoadBalancer & ReverseProxy -Traeffick]
+
+        mail[(Mail Server - Open)]
+        coredns
+
+        vpn[(VPN - Open)]
+        KaniDM
+        ServeurElement
+
+        driveEmployes
+
+        ServeurWazuh?
+
+        promehtus
+        loki
+
+        harbor
+
+        vaultwarden
 
         %% Internal connections
         server1 --> server2
@@ -16,12 +34,22 @@ graph TD
     end
 
     %% Public Cloud Cluster
-    subgraph cp[Public Cloud]
-        style cp stroke-dasharray: 5 5
+    subgraph pc[Public Cloud]
+        style pc stroke-dasharray: 5 5
         db2[(Stateless Applications)]
         disk3[(Backups Storage)]
         server3[LoadBalancer]
         server4[ReverseProxy]
+
+
+        clientElement
+        clientMail
+
+        docuseal
+        wiki
+        discourse
+
+        grafana
 
         %% Internal connections
         server3 --> server4
@@ -29,14 +57,6 @@ graph TD
         server4 --> disk3
     end
 
-    %% Enterprise Network
-    subgraph cp[Enterprise Network]
-        style cp stroke-dasharray: 5 5
-        server5[LoadBalancer]
-        server6[ReverseProxy]
-    end
-
     %% Connection between On-Premises and Cloud
     server1 -->|TUNNEL IP| server3
-
 ```

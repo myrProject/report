@@ -8,13 +8,13 @@
 [LibreOffice]
 
 ## Messagerie Instantanée
-- [Element](https://github.com/element-hq) - basé sur le protocole Matrix
+- WEB [Element](https://github.com/element-hq) - basé sur le protocole Matrix
 - [Wire](https://github.com/wireapp/wire)
 - [Twake](https://github.com/linagora/twake-on-matrix) - fait partie du projet Twake Workplace
 
 ## Client mail avec spécificités
 De préférence, cliant intégrant le protocole JMAP
-- [Tmail](https://github.com/linagora/tmail-flutter) - fait partie du projet Twake Workplace
+- WEB [Tmail](https://github.com/linagora/tmail-flutter) - fait partie du projet Twake Workplace
 
 ## Calendrier qui s'intègre avec la messagerie instantanée et le client mail
 ## Contacts qui s'intègre avec la messagerie instantanée et le client mail

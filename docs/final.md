@@ -5,16 +5,13 @@
 
 ## Suite office
 [OnlyOffice](https://github.com/ONLYOFFICE/DesktopEditors)
-[LibreOffice]
 
 ## Messagerie Instantanée
-- WEB [Element](https://github.com/element-hq) - basé sur le protocole Matrix
-- [Wire](https://github.com/wireapp/wire)
-- [Twake](https://github.com/linagora/twake-on-matrix) - fait partie du projet Twake Workplace
+WEB [Element](https://github.com/element-hq) - basé sur le protocole Matrix
 
 ## Client mail avec spécificités
 De préférence, cliant intégrant le protocole JMAP
-- WEB [Tmail](https://github.com/linagora/tmail-flutter) - fait partie du projet Twake Workplace
+WEB [Tmail](https://github.com/linagora/tmail-flutter) - fait partie du projet Twake Workplace
 
 ## Calendrier qui s'intègre avec la messagerie instantanée et le client mail
 ## Contacts qui s'intègre avec la messagerie instantanée et le client mail
@@ -49,8 +46,7 @@ Script bash qui pull configuration.nix à intervalle régulier avec remontée de
 iptables - regles a definir
 
 ## Editeur de texte
-- [zed](https://github.com/zed-industries/zed)
-- [vscodium](https://github.com/VSCodium/vscodium)
+[zed](https://github.com/zed-industries/zed)
 
 (A voir
 ## Bureau à distance

@@ -7,21 +7,21 @@
 [OnlyOffice](https://github.com/ONLYOFFICE/DesktopEditors)
 
 ## Messagerie Instantanée
-WEB [Element](https://github.com/element-hq) - basé sur le protocole Matrix
+**WEB** [Element](https://github.com/element-hq) - basé sur le protocole Matrix
 
 ## Client mail avec spécificités
 De préférence, cliant intégrant le protocole JMAP
-WEB [Tmail](https://github.com/linagora/tmail-flutter) - fait partie du projet Twake Workplace
+**WEB** [Tmail](https://github.com/linagora/tmail-flutter) - fait partie du projet Twake Workplace
 
 ## Calendrier qui s'intègre avec la messagerie instantanée et le client mail
 ## Contacts qui s'intègre avec la messagerie instantanée et le client mail
 
 ## Drive : client sur le poste qui synchronise les fichiers et une interface web
-[ceph client](https://github.com/ceph/ceph) à configurer
+**CHAUD**[ceph client](https://github.com/ceph/ceph) à configurer
 et Interface web à développer
 
 ## Authentification Linux sous PAM, avec authentification hors ligne et forte
-[Client PAM KaniDM](https://github.com/kanidm/kanidm)
+**CHAUD**[Client PAM KaniDM](https://github.com/kanidm/kanidm)
 
 ## Agent d'un serveur d'automatisation d'une flotte
 Script bash qui pull configuration.nix à intervalle régulier avec remontée de logs via Loki ?
@@ -30,7 +30,7 @@ Script bash qui pull configuration.nix à intervalle régulier avec remontée de
 [wazuh](https://github.com/wazuh/wazuh)
 
 ## Client VPN
-- [Client OpenVPN Linux](https://github.com/OpenVPN/openvpn3-linux)
+**CHAUD** [Client OpenVPN Linux](https://github.com/OpenVPN/openvpn3-linux)
 
 ( Kiffeur
 ## Outil d'encryption
@@ -38,7 +38,7 @@ Script bash qui pull configuration.nix à intervalle régulier avec remontée de
 )
 
 ## Navigateur avec extension bloqueur de pub
-- [Mozilla](https://hg.mozilla.org/) avec
+[Mozilla](https://hg.mozilla.org/) avec
 [uBlock Origin](https://github.com/gorhill/uBlock) et
 [Bitwarden](https://github.com/bitwarden/clients)
 

@@ -6,22 +6,27 @@
 ## Suite office
 [OnlyOffice](https://github.com/ONLYOFFICE/DesktopEditors)
 
-## Messagerie Instantanée
-**WEB** [Element](https://github.com/element-hq) - basé sur le protocole Matrix
+## Messagerie Instantanée **WEB**
+[Element](https://github.com/element-hq) - basé sur le protocole Matrix
 
-## Client mail avec spécificités
+## Client mail avec spécificités **WEB**
 De préférence, cliant intégrant le protocole JMAP
-**WEB** [Tmail](https://github.com/linagora/tmail-flutter) - fait partie du projet Twake Workplace
+
+[Tmail](https://github.com/linagora/tmail-flutter) - fait partie du projet Twake Workplace
 
 ## Calendrier qui s'intègre avec la messagerie instantanée et le client mail
 ## Contacts qui s'intègre avec la messagerie instantanée et le client mail
 
-## Drive : client sur le poste qui synchronise les fichiers et une interface web
-**CHAUD**[ceph client](https://github.com/ceph/ceph) à configurer
-et Interface web à développer
+## Drive **CHAUD**
+Client sur le poste qui synchronise les fichiers :
+[ceph client](https://github.com/ceph/ceph) à configurer
 
-## Authentification Linux sous PAM, avec authentification hors ligne et forte
-**CHAUD**[Client PAM KaniDM](https://github.com/kanidm/kanidm)
+Interface web à développer
+
+## Authentification Linux sous  **CHAUD**
+PAM, avec authentification hors ligne et forte
+
+[Client PAM KaniDM](https://github.com/kanidm/kanidm)
 
 ## Agent d'un serveur d'automatisation d'une flotte
 Script bash qui pull configuration.nix à intervalle régulier avec remontée de logs via Loki ?
@@ -29,8 +34,8 @@ Script bash qui pull configuration.nix à intervalle régulier avec remontée de
 ## Logiciel de sécurité intégré (XDR)
 [wazuh](https://github.com/wazuh/wazuh)
 
-## Client VPN
-**CHAUD** [Client OpenVPN Linux](https://github.com/OpenVPN/openvpn3-linux)
+## Client VPN **CHAUD**
+[Client OpenVPN Linux](https://github.com/OpenVPN/openvpn3-linux)
 
 ( Kiffeur
 ## Outil d'encryption

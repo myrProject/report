@@ -1,0 +1,48 @@
+# Quiennec
+
+Presentation cloud puis os
+vs
+Archi puis Cloud et os en meme temps
+
+> Abstract jour oral + Rapport dans la semaine
+
+# Presentation
+
+## Intro
+
+Alternative open source à l'OS et à la suite Office pour PME en respectant ZeroTrust
+Justifier le sujet : privé (cout, sécu), public, utilisateur.
+Liste services remplacés.
+Licenses ?
+
+## ZeroTrust: Slide avec les 5 objectifs
+
+- une gouvernance améliorée de l’identité (l’accès aux ressources est contingenté à l’identification de l'utilisateur et de l’équipement utilisé, du statut de l’actif et de facteurs environnementaux tels que l'heure et la géolocalisation de la demande de connexion). En tant qu’éléments clés du modèle Zero Trust, le ou les référentiels d’identité doivent être assainis avec une politique stricte de mise à jour lors des arrivées, départs et mobilités. Ils doivent refléter fidèlement la situation courante des utilisateurs;
+
+- un cloisonnement des ressources plus granulaire et dynamique. Cette « micro-segmentation » réunit les ressources en groupes qui ont une signification métier et le filtrage des flux entre ces groupes devient indépendant des adresses IP des ressources. Cette couche d’abstraction supplémentaire (ex. : tags et vxlan) permet d’adapter la protection des ressources au plus juste besoin de protection, car toutes les ressources sont cloisonnées en fonction de leur rôle, de leur sensibilité et de leur exposition aux menaces;
+
+- une utilisation des moyens d’authentification à l’état de l’art, dans la mesure où l’authentification double facteur est généralement un prérequis à la mise en œuvre du modèle Zero Trust, il est recommandé d’être attentif au choix des facteurs d’authentification et de privilégier par exemple des certificats générés par une infrastructure de gestion de clés (IGC) de confiance ou des jetons FIDO ;
+
+- un renforcement des moyens de détection, les journaux de sécurité générés doivent être judicieusement configurés puis centralisés dans un SIEM. Les équipes de supervision de la sécurité (SOC) doivent être suffisamment formées, expérimentées et dimensionnées pour réagir aux alarmes de sécurité. ;
+une configuration à l’état de l’art quant à la sécurité des services. Par exemple, pour le chiffrement de flux, TLS doit être configuré suivant le guide TLS de l’ANSSI[2] ;
+
+- une conduite du changement à ne pas délaisser. Si le modèle Zero Trust est vu comme un levier de simplification de l’expérience utilisateur, il ne doit pas faire oublier que les utilisateurs sont les premiers concernés par la sécurité numérique de leur entité. Les nouveaux modes d’accès, d’authentification ou d’alerte doivent être communiqués de façon claire en rappelant l’importance d’être vigilant dans l’utilisation des moyens numériques.
+
+
+## Cloud
+
+Plan global
+
+Justifier choix de Talos & Omni et approches
+Justifier choix de Kuberntees et approches - courbe d'apprentissage
+Packages Installés - bof
+
+## Distribution
+
+Justifier choix de NixOs et approches
+Packages Installés - bof
+Pb > Authentification Fichier Conf Github : clé privée / publique
+> GPG - Repo avec: configuration.nix, configuration.nix.asc et clé publique admin gpg
+Confidentialité émise car git privé
+
+# Problèmes recontrés / améliorations

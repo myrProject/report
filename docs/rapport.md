@@ -74,11 +74,36 @@ Néanmoins, il serait intéréssant d'extraire les composants essentiels de Parr
 Cette flexibilité permet d'adapter la distribution selon les préférences et les exigences de notre cahier des charges de cette distribution.
 
 #### **NixOS**
-NixOS est une distribution qui permet une configuration déclarative : en éditant le fichier *configuration.nix*, il est possible de décrire l'ensemble du système souhaité : logiciels installés, services activés, paramètres de sécurité, gestion des utilisateurs, etc. Contrairement aux distributions classiques où les configurations sont appliquées manuellement via des commandes et des fichiers dispersés, ici tout est défini en une seule fois puis appliqué via une reconstruction du système. Cette spécificité permet une installation homogène et reproductible sur l'ensemble des postes d'une entreprise et simplifie grandement leur gestion *(un administrateur peut gérer et modifier toute la flotte d'ordinateurs en ne modifiant qu'un seul fichier)*. Elle offre également des options d'isolation renforcées ainsi qu'un mécanisme de *rollback* qui permet de revenir instantanément à une configuration antérieure en cas d'erreur de configuration.
+NixOS est une distribution qui permet une configuration déclarative : en éditant le fichier *configuration.nix*,
+il est possible de décrire l'ensemble du système souhaité : logiciels installés, services activés, paramètres de sécurité,
+gestion des utilisateurs, etc. Contrairement aux distributions classiques où les configurations sont appliquées manuellement
+via des commandes et des fichiers dispersés, ici tout est défini en une seule fois puis appliqué via une reconstruction du système.
+Cette spécificité permet une installation homogène et reproductible sur l'ensemble des postes d'une entreprise et simplifie grandement
+leur gestion *(un administrateur peut gérer et modifier toute la flotte d'ordinateurs en ne modifiant qu'un seul fichier)*.
+Elle offre également des options d'isolation renforcées ainsi qu'un mécanisme de *rollback* qui permet de revenir instantanément
+à une configuration antérieure en cas d'erreur de configuration.
 
-Le point négatif de cette distribution réside surtout dans l'apprentissage qu'elle nécessite. En effet, **NixOS** possède une syntaxe et une gestion des paquets bien différente des autres distributions Linux et pourrait être compliquée à maintenir pour des administrateurs IT habitués aux méthodes plus classiques.
+Le point négatif de cette distribution réside surtout dans l'apprentissage qu'elle nécessite.
+En effet, **NixOS** possède une syntaxe et une gestion des paquets bien différente des autres distributions Linux et pourrait être compliquée à maintenir pour des administrateurs IT habitués aux méthodes plus classiques.
 
-## Choix de la distribution serveur (pour faire tourner Kubernetes)
+## Justification de l'architecture Cloud
+
+### Pourquoi un cloud hybride ?
+Historiquement, entreprises cloud privé ("on premises")
+Apparation des clouds publics (AWS, Azure, GCP)
+Migration de certains services
+Situation plus complète possible
+Données sensibles sur le cloud privé et applications nécéssitant une scalabilité sur le cloud public.
+Etablissement d'un tunnel IPSEC entre les deux clouds pour ne pas héberger les DBs hébergées sur le cloud privé sur le cloud public.
+Nous avons fait une Backup des données encryptées sur le cloud public mais dans la pratique, utilisation d'une troisième location.
+
+### Pourquoi s'orienter vers des micro-services ?
+Historiquemenet, applications monolithiques hébergées sur des VMs
+Apparition des conteneurs (Docker) : meilleures performances, scalabilité, isolation
+Migration des applications monolithiques vers des micro-services
+Micro-services : structuration d'une application comme un ensemble de services faiblement couplés.
+Néanmoins, il persiste une complexité dans la gestion des micro-services : orchestration, monitoring, logging, backup, sécurité, etc.
+-> Kubernetees for on premises cloud
 
 ### Cahier des charges
 
@@ -93,12 +118,12 @@ Services k8s à intégrer :
 - Tous les services nécéssaires aux fonctionnement de la distribution utilisateur
 
 dont des services hébergés bénéficiant aux employés :
-- Services de ticketting
 - Gestionnaire Mot de passe
-- Espace drive perso
 - Logiciel de signature en ligne
 - Logiciel de wiki
 - Logiciel de discussion communautaire
+
+## Choix de la distribution serveur (pour faire tourner Kubernetes)
 
 ### Comparatif des distributions
 
@@ -106,3 +131,42 @@ dont des services hébergés bénéficiant aux employés :
 |----------------|---------------------------------------------------------------------------|-------------------------------------------------------------------------------|
 | **Talos**      | - Conçu spécifiquement pour Kubernetes <br> - Sécurité renforcée (OS immutable) <br> - Gestion simplifiée via API | - Moins polyvalent (uniquement pour Kubernetes) <br> - Courbe d'apprentissage pour la configuration |
 | **Debian**     | - Polyvalent et stable <br> - Large communauté et documentation <br> - Compatible avec de nombreux logiciels | - Nécessite une configuration manuelle pour Kubernetes <br> - Moins optimisé car beaucoup de paquets annexes inutilisés |
+
+### Prise en main de certaines distributions
+
+#### **Talos**
+Utilisation de [Omni](https://github.com/siderolabs/omni) pour manager les VMs faisant tourner Talos.
+Omni propose une interface web permettant de mettre à jour les VMs, surveiller leur état, les rédemarrer ainsi que
+la création automatisée de cluster automatisée depuis un fichier de configuration.
+On remarque que Talos est très économe en ressources, ce qui est un avantage pour un cluster Kubernetes. Il tourne sur un noyau Linux minimaliste et utilise peu de ressources (environ 300 Mb de RAM et 10 process en idle).
+
+## Travail réalisé
+
+### Partie cloud
+Achat du nom de domaine myr-project.eu et configuration des enregistrements DNS pour rediriger les sous-domaines vers les services hébergés.
+
+Utilisation de [Helm](https://helm.sh/) pour déployer les services Kubernetes selon les spécificaitons des développeurs des services.
+
+Services hébergés avec succès :
+prometheus
+velero
+cert-manager
+cnpg
+element
+grafana
+harbor
+kanidm
+loki
+matrix
+minio
+stalwart-mail
+traefik
+vaultwarden
+wiki
+wireguard
+element
+
+### Partie distribution
+
+
+## Conclusion

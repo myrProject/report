@@ -151,7 +151,7 @@ Services hébergés avec succès :
 prometheus
 velero
 cert-manager
-cnpg
+CloudNativePostgreSql
 element
 grafana
 harbor

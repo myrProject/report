@@ -167,6 +167,49 @@ wireguard
 element
 
 ### Partie distribution
+Après plusieurs tests de déploiement et de rapidité, nous avons finalement opté pour Nixos en tant que OS de départ.
+Ainsi, nous avons pu installé directement plusieurs packages compatibles avec Nixos comme:
+- Iptables
+- Wget
+- Vim
+- Git
+- CurlWithGnuTls
+- Gnumake
+- Sudo
+- Picocrypt
+- Kanidm_1_5
+- Openvpn3
+- Onlyoffice-desktopeditors
+- Unzip
+- Binutils
 
+En parallèle, le défi principal était de mettre à jour la configuration de manière automatique. Une solution retenue était de poster sur un gitlab privé (accessible que depuis l'intérieur de l'entreprise) la configuration nix, la signature de la configuration et la clef publique de l'administrateur réseau. Ainsi, de manière récurrente, tous les jours à 7h, l'ordinateur pull automatiquement la nouvelle configuration, vérifie la signature à l'aide de GPG et remplace la nouvelle par l'actuelle si des modifications ont eu lieu puis rebuild l'OS.
+
+De plus, par simplicité, nous avons préinstallé des extensions Firefox utiles tels que:
+- Ublock-Origin : Bloqueur de pub
+- Bitwarden-password-manager :Un gestionnaire de mots de passe
+
+et nous avons créer des shortcut bureau de Picocrypt et de la suite OnlyOffice.
+
+Enfin, nous avons intégrer un firewall qui drop tous les paquets sauf les requêtes TCP (80 pour HTTP, 443 pour HTTPS, 22 pour SSH, 389 pour LDAP et 636 pour LDAPS), UDP (53 pour le DNS) et les connexions déjà établies.
+
+Parmi les packages que nous n'avons pas encore réussi à installer se trouve wazuh. Lors de son installation avec fetchGitHub, Nix nous renvoie que le hash obtenu lors de la récupération du git ne coïncidait pas avec le hash attendu.
+
+Pour contourner se problème, il suffit de rentrer le hash que Nix attend même si ce dernier ne correspond pas à la dernière version. Pour ce faire, nous devons remarquer que nixos utilise un programme supplémentaire qui modifier le hash qu'on lui donner afin d'en ressortir un de la forme: "sha256-XXX"
+Après une rapide inspection de la fonction, on constate que cette fonction transforme en base64 le hash que l'on a donné et lui rajoute le préfixe "sha256-".
+Ainsi en récupérant le hash attendu, nous pouvons remonter au hash valide en hexadécimale et le mettre dans la configuration.
+Malgré cela, l'installation ne s'effectue pas et aucun package n'est installé sans message d'erreur.
+
+Une alternative était de réaliser un service qui exécute le script wazuh.sh au démarrage. Ce script réaliser un wget de wazuh, le décompressait et l'exécutait. Cependant en lançant le fichier install.sh fourni sur github, l'installation ne se réalisait pas correctement pour une raison inconnue et inexplicable. Le script sautait automatiquement les phases d'installation.
+
+Une autre alternative se trouvait sur la page internet de wazuh qui proposer une installation quick start. Cette alternative fut rapidement abandonnée car elle repose sur APT pour l'installation de packages. L'installation de APT dans nixos est impossible car il y aurait superposition avec nixos qui est l'installeur de packages dédié. Une incompréhension persiste sur le fait que le packages APT fait parti de la liste officielles des packages installables sur nixos. Mais lors de son utilisation, il ne fonctionne pas pour les raisons cités dessus.
+
+Une autre alternative était de passer par une image docker afin d'ouvrir wazuh. Malheureusement les repo GitHub fournissant le code ne sont plus bons. Aucune documentation n'explique l'installation et le script qui nous permettaient de créer les images nécessaires à l'installation n'aboutissaient pas lors de l'exécution. En outre, l'utilisation de apt bloquait encore le script.
+
+Enfin nous avons décider de délaisser wazuh pour aller vers ossec qui est ressemblant. Cependant, lors de l'installation, une erreur est levée indiquant que le fichier pcre2.h est manquant. Et malgré son installation via les packages de nixos, rien ne fonctionne. Nous avons essayer de build le fichier grâce à un script GitHub qui, en fonction de notre environnement, crée un pcre2.h fonctionnel. Néanmoins le script échoue car notre compilateur c ne peut pas créer d'exécutables.
+
+Nous avons fini par délaisser wazuh afin de prioriser d'autres applications plus essentielles.
+
+La version du fichier de configuration finale ne possède pas certaines applications indispensables telles que wazuh mais elle reste fonctionnelle pour une utilisation personnelle. De plus, les difficultés rencontraient peuvent être surmontés avec plus de temps pour le développement.
 
 ## Conclusion

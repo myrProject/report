@@ -220,7 +220,28 @@ Nous avons fini par délaisser wazuh afin de prioriser d'autres applications plu
 
 La version du fichier de configuration finale ne possède pas certaines applications indispensables telles que wazuh mais elle reste fonctionnelle pour une utilisation personnelle. De plus, les difficultés rencontraient peuvent être surmontés avec plus de temps pour le développement.
 
+# Défis techniques
+## Manque de maturité de certains projets
+Prometteurs mais manque de documentation, et n'intègrent pas encore toutes les fonctionnalités du standard de l'industrie comme l'authentification SAML.
+Découverte existence de la CloudNativeComputingFoundation (CNCF) qui regroupe les projets les plus matures et les plus utilisés.
+Apporte une certaine serenité d'utilsiation puisque l'intégration à la CNCF assure un développement continu et une communauté active.
+Nous aurions du nous tourner vers ces projets dès le début pour éviter de perdre du temps.
+
+## Manque de temps
+Projet long, beaucoup de travail à réaliser, dont la majorité était inestimée, par exemple la courbe d'apprentissage de Kubernetes : découverte d'un écosystème complet.
+Nous avons passé beaucoup de temps sur des minuscules bugs.
+
+## Faible documentation de certains projets
+
+## Zero Trust : 5 principes clés
+| Principe   | Applications
+|----------------|---------------------|
+| **Gouvernance améliorée de l’identité**      | - KaniDm apporte Authentificaion et Authorization <br> - Mise en place de politiques restrictives dans Kubernetes |
+| **Cloisonnement des ressources**     | - Choix d'une Architecture Cloud <br> - Restriction de l'accès des services en fonction de l'addresse IP  |
+| **Utilisation des moyens d’authentification à l’état de l’art**     | - KaniDm propose Webauthn, une MFA <br> - Omni utilise GPG pour authentifier les adminsitrateurs des machines  |
+| **Configuration à l’état de l’art quant à la sécurité des services**     | - Omni utilise mTLS pour son API <br> - Traefik fournit du TLS v1.3 à tous les services hébergés |
+| **Conduite du changement à ne pas délaisser**     | - A la charge des entreprises |
+
 ## Conclusion
-
-
-## Zero Trust
+Ce projet a permis de mettre en place une infrastructure cloud hybride sécurisée et une distribution personnalisée adaptée aux besoins professionnels.
+Découverte de nouvelles technologies utilisées en entreprise comme Kubernetes qui pourront servir pour une embauche future.

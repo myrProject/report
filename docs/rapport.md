@@ -140,7 +140,41 @@ Notre choix s’est finalement porté sur **Talos**.
 - L’installation de Wazuh a échoué en raison de problèmes de hash et de dépendances.
 - Les alternatives (Ossec) ont également posé des problèmes techniques.
 
+## Défis techniques
+
+### Manque de maturité de certains projets
+Plusieurs projets rencontrés lors de ce projet étaient prometteurs mais manquaient de maturité. Les principales difficultés étaient le manque de documentation et l’absence de certaines fonctionnalités clés, comme l’authentification SAML, un standard de l’industrie.
+
+La découverte de la **Cloud Native Computing Foundation (CNCF)** a été un tournant. Cette fondation regroupe les projets les plus matures et les plus utilisés dans l’écosystème cloud. S’appuyer sur des projets certifiés CNCF dès le début aurait permis de gagner du temps et d’éviter des problèmes techniques.
+
+### Manque de temps
+Ce projet, bien que passionnant, s’est avéré très chronophage. La courbe d’apprentissage de Kubernetes et de son écosystème a nécessité un temps considérable. De plus, beaucoup de temps a été consacré à résoudre des problèmes techniques mineurs mais bloquants, et certaines tâches, comme la configuration fine des services ou l’intégration de solutions de sécurité, ont pris plus de temps que prévu.
+
+Une meilleure estimation des tâches et une priorisation plus stricte auraient permis d’avancer plus efficacement.
+
+
+### Faible documentation de certains projets
+Certains projets open source, bien que techniquement intéressants, souffraient d’une documentation insuffisante ou peu claire. Cela a rendu leur prise en main et leur intégration plus difficile que prévu. Privilégier les projets bien documentés et disposant d’une communauté active est essentiel pour garantir une mise en œuvre rapide et fiable.
+
+---
+
+## Zero Trust : 5 principes clés
+
+| Principe   | Applications
+|----------------|---------------------|
+|**Gouvernance améliorée de l’identité**|Kanidm a été utilisé pour l’authentification et l’autorisation, tandis que des politiques restrictives ont été mises en place dans Kubernetes pour limiter les accès.|
+|**Cloisonnement des ressources**|Le choix d’une architecture cloud hybride a permis de cloisonner les ressources, avec des restrictions d’accès basées sur l’adresse IP pour renforcer la sécurité.|
+|**Utilisation des moyens d’authentification à l’état de l’art**|Kanidm propose WebAuthn pour une authentification forte (MFA), et Omni utilise GPG pour authentifier les administrateurs des machines.|
+|**Configuration à l’état de l’art quant à la sécurité des services**|Omni utilise mTLS pour sécuriser son API, et Traefik fournit du TLS v1.3 pour tous les services hébergés, garantissant une communication sécurisée.|
+|**Conduite du changement à ne pas délaisser**|La mise en œuvre des principes Zero Trust nécessite une formation et une sensibilisation des équipes, une responsabilité qui incombe aux entreprises.
+
 ---
 
 ## Conclusion
-Ce projet a permis de mettre en place une infrastructure cloud hybride sécurisée et une distribution personnalisée adaptée aux besoins professionnels. Bien que certains défis techniques subsistent (notamment l’intégration de Wazuh), la solution reste fonctionnelle et prête à être déployée dans un environnement d’entreprise.
+Ce projet a permis de mettre en place une infrastructure cloud hybride sécurisée et une distribution personnalisée adaptée aux besoins professionnels. Il a également été l’occasion de découvrir et de maîtriser des technologies clés utilisées en entreprise, comme **Kubernetes**, qui seront un atout pour une future embauche.
+
+Les points forts incluent la réussite du déploiement d’une architecture cloud hybride Zero Trust, l’intégration de services essentiels (Kanidm, Traefik, Prometheus, etc.), et la création d’une distribution personnalisée basée sur NixOS.
+
+Cependant, des améliorations sont possibles, comme privilégier les projets certifiés CNCF pour gagner en maturité et en stabilité, mieux estimer le temps nécessaire pour chaque tâche, et renforcer la documentation interne pour faciliter la maintenance et l’évolution du projet.
+
+Ce projet a été une expérience enrichissante, tant sur le plan technique que sur le plan organisationnel, et ouvre la voie à de nombreuses perspectives d’amélioration et d’optimisation.

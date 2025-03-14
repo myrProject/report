@@ -149,7 +149,7 @@ Notre choix s’est finalement porté sur **Talos**.
 Comme expliqué précédemment, nous avons décidé de nous orienter vers une architecture cloud hybride. Voici comment nous avons pensé la réalisation d'une telle infrastructure :
 
 <p align="center">
-   <img src="assets/plan-global.png" alt="drawing" width="500"/>
+   <img src="docs/assets/plan-global.png" alt="drawing" width="500"/>
 </p>
 
 Le cloud hybride serait donc divisé en deux parties : une partie privée et une partie publique. Ces deux parties communiqueraient via un tunnel IPSEC sécurisé afin de permettre aux employés d'accéder au contenu de la base de données ou encore d'assurer une réplication des backups par exemple. L'entreprise comporterait trois points d'entrée : un VPN dont ils pourraient se servir pour accéder aux services de l'entreprise lorsqu'ils seraient en télétravail par exemple, ainsi que l'Ethernet ou le Wifi de l'entreprise s'ils se trouvent sur site. L'accès aux services hébergés se ferait via une plage d'adresses IP restreinte pour ne pas permettre à n'importe qui d'y accéder.
@@ -157,8 +157,8 @@ Le cloud hybride serait donc divisé en deux parties : une partie privée et une
 Nous avons conceptualisé les plans suivants pour nos deux clouds : 
 
 <p align="center">
-   <img src="assets/plan-prive.png" alt="drawing" width="700"/>
-   <img src="assets/plan-public.png" alt="drawing" width="400"/>
+   <img src="docs/assets/plan-prive.png" alt="drawing" width="700"/>
+   <img src="docs/assets/plan-public.png" alt="drawing" width="400"/>
 </p>
 
 Plus précisément, voici un détail du travail que nous avons réalisé :

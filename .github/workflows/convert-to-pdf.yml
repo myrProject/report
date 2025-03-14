@@ -20,8 +20,8 @@ jobs:
         with:
           input_dir: docs # Directory containing Markdown files
           output_dir: pdf # Directory to save the generated PDFs
-          images_dir: ./images # Directory containing images
-          image_import: ./images # Directory to import images from
+          images_dir: docs/assets # Directory containing images
+          image_import: docs/assets # Directory to import images from
           build_html: false # Disable HTML build (only PDF)
 
       # Step 3: Set the current date as an environment variable
